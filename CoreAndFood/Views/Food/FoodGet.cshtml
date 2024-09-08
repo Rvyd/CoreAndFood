@@ -1,0 +1,38 @@
+﻿@model CoreAndFood.Data.Models.Food
+@{
+    ViewData["Title"] = "FoodGet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Food Update</h1>
+<br />
+
+<!--Burası post zamanında çalışacak-->
+@using (Html.BeginForm("FoodUpdate", "Food", FormMethod.Post))
+{
+	@Html.LabelFor(x => x.FoodID)
+	@Html.TextBoxFor(x => x.FoodID, new { @class = "form-control" })
+	@Html.LabelFor(x => x.Name)
+	@Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+	<br />
+	@Html.LabelFor(x => x.Stock)
+	@Html.TextBoxFor(x => x.Stock, new { @class = "form-control" })
+	<br />
+	@Html.LabelFor(x => x.Price)
+	@Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+	<br />
+	@Html.LabelFor(x => x.ImageURL)
+	@Html.TextBoxFor(x => x.ImageURL, new { @class = "form-control" })
+	<br />
+	@Html.Label("Category")
+	@Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.v1, "Choose category", new { @class = "form-control" })
+	<br />
+	@Html.LabelFor(x => x.Description)
+	@Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
+	<br />
+	<button class="btn btn-primary">
+		<i class="fa fa-recycle"></i>
+		Update
+	</button>
+}
+
